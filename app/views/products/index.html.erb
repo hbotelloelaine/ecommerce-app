@@ -1,0 +1,16 @@
+<h1>Products</h1>
+
+  <div class="row">
+    <% @products.each do |product| %>
+    <div class="col-md-3">
+    <div class ="product-box">
+
+      <p>Name: <%=link_to product.name,"/products/#{product.id}"%></p>
+      <p>Price: <%= product.price %></p>
+      <img src="<%= product.image %>">
+      <p>Description: <%= product.description %></p>
+  </div>
+  </div>
+  <% end %>
+</div>
+

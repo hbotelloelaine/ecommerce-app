@@ -1,0 +1,16 @@
+<h1>Product</h1>
+
+<h1><%= @product.name %></h1>
+<h2>Price: <%= @product.sale_message %></h2>
+<h2>Tax: <%= @product.tax %></h2>
+<h2>Total: <%= @product.total %></h2>
+
+
+
+
+
+<p><%= link_to "Delete", "/products/#{@product.id}", method: :delete %></p>
+
+<p><%= link_to "Edit","/products/#{@product.id}/edit" %></p>
+
+
