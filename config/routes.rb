@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :users
+  root to: "products#index"
   get "/products", to: "products#index"
   get "/products/new", to: "products#new"
   post "/products", to: "products#create"
@@ -6,6 +8,10 @@ Rails.application.routes.draw do
   get "/products/:id/edit", to: "products#edit"
   patch "/products/:id", to: "products#update"
   delete "/products/:id", to: 'products#destroy'
+  post "/products/search",to: "products#search"
+  
+
+
   # delete "/products/:id", to: "products#show"
   # delete "request/:id", to: "products#destroy"
 
@@ -44,7 +50,7 @@ Rails.application.routes.draw do
   #       get 'sold'
   #     end
   #   end
-
+  
   # Example resource route with sub-resources:
   #   resources :products do
   #     resources :comments, :sales

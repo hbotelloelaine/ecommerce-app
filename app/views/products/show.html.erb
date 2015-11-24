@@ -1,16 +1,30 @@
 <h1>Product</h1>
-
-<h1><%= @product.name %></h1>
-<h2>Price: <%= @product.sale_message %></h2>
-<h2>Tax: <%= @product.tax %></h2>
-<h2>Total: <%= @product.total %></h2>
-
+<section>
+  <div class="row">
+    <div class="col-sm-9">
+   
 
 
+      <p><%= @product.name %></p>
+      <h2>Price: <%= @product.sale_message %></h2>
+      <h2>Tax: <%= @product.tax %></h2>
+      <h2>Total: <%= @product.total %></h2>
+      <% @product.images.each do |image| %>
+      <img src="<%= image.image_url %>" alt="<% @product.name %>" class="img-responsive">
+      <%end%>
+      <p>Description: <%= @product.description %></p>
+
+      <h2><%= @product.price_asc %></h2>
+      <h2><%= @product.price_desc %></h2>
 
 
-<p><%= link_to "Delete", "/products/#{@product.id}", method: :delete %></p>
 
-<p><%= link_to "Edit","/products/#{@product.id}/edit" %></p>
 
+
+      <p><%= link_to "Delete", "/products/#{@product.id}", method: :delete %></p>
+
+      <p><%= link_to "Edit","/products/#{@product.id}/edit" %></p>
+    </div>
+  </div>
+</section>
 

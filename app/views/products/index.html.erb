@@ -1,16 +1,26 @@
 <h1>Products</h1>
 
-  <div class="row">
-    <% @products.each do |product| %>
-    <div class="col-md-3">
+<div class="row">
+  <% @products.each do |product| %>
+  <div class="col-md-3">
     <div class ="product-box">
+    </div>
+    
+    <p><%= link_to "Show discounted items","/products?view=discounted" %></p>
+    <p><%= link_to "Lowest to highest","/products?view=order_by_price" %></p>
+    <p><%= link_to "Highest to lowest","/products?view=order_by_price_desc" %></p>
+    <p><%= link_to "I'm feeling lucky","/products?view=order_by_price_desc" %></p>
 
-      <p>Name: <%=link_to product.name,"/products/#{product.id}"%></p>
-      <p>Price: <%= product.price %></p>
-      <img src="<%= product.image %>">
-      <p>Description: <%= product.description %></p>
+
+    <p>Name: <%=link_to product.name,"/products/#{product.id}"%></p>
+    <p>Price: <%= product.price %></p>
+    <img src="<%= product.image %>">
+    <p>Description: <%= product.description %></p>
+
   </div>
-  </div>
-  <% end %>
 </div>
+<% end %>
+</div>
+
+
 

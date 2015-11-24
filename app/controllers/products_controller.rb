@@ -2,6 +2,7 @@ class ProductsController < ApplicationController
 
   def index
     if params[:view] == "discounted"
+      @products
     @products = Product.where("price < ?", 12)
   else
     @products = Product.all
@@ -52,6 +53,12 @@ class ProductsController < ApplicationController
     product.destroy
     flash[:warning] = "Product Deleted"
     redirect_to "/products"
+  end
+
+  def search
+    search_term = params[:search]
+    @products = Product.where("name LIKE ? AND description LIKE ?", "%#{search_term}%", "%#{search_term}%" )
+    render :index
   end
 end
 #   def add_product
