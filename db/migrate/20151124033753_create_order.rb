@@ -8,7 +8,7 @@ class CreateOrder < ActiveRecord::Migration
       t.decimal :tax, precision: 6, scale: 2
       t.decimal :total, precision: 6, scale: 2
 
-      t.timestamps null: false
+      t.timestamps null: true
       
 
     end

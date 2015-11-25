@@ -16,14 +16,19 @@
 
       <h2><%= @product.price_asc %></h2>
       <h2><%= @product.price_desc %></h2>
+      <div>
+      <%= form_tag " /orders", method: :post do %>
+      <%= label_tag :quantity %>
+      <%= text_field_tag :quanitiy %>
+      </div>
 
 
 
 
-
+     
       <p><%= link_to "Delete", "/products/#{@product.id}", method: :delete %></p>
-
       <p><%= link_to "Edit","/products/#{@product.id}/edit" %></p>
+
     </div>
   </div>
 </section>

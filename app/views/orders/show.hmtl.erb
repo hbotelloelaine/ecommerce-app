@@ -1,0 +1,16 @@
+<h1> Thank You for your order! </h1>
+
+<p> Order ID: <%= @order.id %></p>
+<p> Products: <%= @order.product.id.name %></p>
+<p>Qunatity: <%= @order.quantity %></p>
+<p>Qunatity: <%= @order.quantity %></p>
+<p>Subtotal: <%= @order.subtotal %></p>
+<p>Tax: <%= @order.tax %></p>
+<p>Total: <%= @order.total %></p>
+<p>Purchased: <%= @order.created_at %></p>
+<p>Purchased By: <%= @order.user.email %></p>
+<img src="<%= image.product.images.first.image_url %>">
+
+
+
+
