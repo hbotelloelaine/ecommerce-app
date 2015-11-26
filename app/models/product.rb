@@ -17,7 +17,7 @@ class Product < ActiveRecord::Base
   end
 
   def sale_message
-    if price < 12
+    if price.to_i < 12
       "Discount Item!"
     else 
       "On Sale"
