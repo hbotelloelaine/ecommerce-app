@@ -9,13 +9,17 @@
     <p><%= link_to "Show discounted items","/products?view=discounted" %></p>
     <p><%= link_to "Lowest to highest","/products?view=order_by_price" %></p>
     <p><%= link_to "Highest to lowest","/products?view=order_by_price_desc" %></p>
-    <p><%= link_to "I'm feeling lucky","/products?view=order_by_price_desc" %></p>
+    <p><%= link_to "I'm feeling lucky","/products/random" %></p>
+    <p><%= link_to "show all", "/products" %></p>
 
 
     <p>Name: <%=link_to product.name,"/products/#{product.id}"%></p>
     <p>Price: <%= product.price %></p>
     <img src="<%= product.image %>">
     <p>Description: <%= product.description %></p>
+    <% @categories.each do |category| %>
+    <p><%= link_to "#{category.name} Dark","/products?category=#{category.name}" %></p>
+    <% end %>
 
   </div>
 </div>

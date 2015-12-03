@@ -11,7 +11,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151124033753) do
+ActiveRecord::Schema.define(version: 20151201030057) do
+
+  create_table "carted_products", force: :cascade do |t|
+    t.integer  "user_id",    limit: 4
+    t.integer  "product_id", limit: 4
+    t.integer  "quantity",   limit: 4
+    t.string   "status",     limit: 255
+    t.integer  "order_id",   limit: 4
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.string   "name",       limit: 255
+  end
+
+  create_table "categorized_products", force: :cascade do |t|
+    t.integer  "product_id",  limit: 4
+    t.integer  "category_id", limit: 4
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
 
   create_table "images", force: :cascade do |t|
     t.string   "url",        limit: 255
@@ -22,8 +45,6 @@ ActiveRecord::Schema.define(version: 20151124033753) do
 
   create_table "orders", force: :cascade do |t|
     t.integer  "user_id",    limit: 4
-    t.integer  "product_id", limit: 4
-    t.integer  "quantity",   limit: 4
     t.decimal  "subtotal",             precision: 6, scale: 2
     t.decimal  "tax",                  precision: 6, scale: 2
     t.decimal  "total",                precision: 6, scale: 2
@@ -41,6 +62,12 @@ ActiveRecord::Schema.define(version: 20151124033753) do
     t.boolean  "in_stock",                                        default: true
     t.integer  "supplier_id", limit: 4
     t.integer  "user_id",     limit: 4
+  end
+
+  create_table "remove_quantity_from_orders", force: :cascade do |t|
+    t.integer  "quantity",   limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
   end
 
   create_table "suppliers", force: :cascade do |t|
