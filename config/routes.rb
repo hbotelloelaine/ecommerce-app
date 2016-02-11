@@ -2,20 +2,41 @@ Rails.application.routes.draw do
   devise_for :users
 
   root to: "products#index"
+  resources :products
+  post "/products/search", to: "products#search"
 
-  get "/products", to: "products#index"
-  get "/products/new", to: "products#new"
-  post "/products", to: "products#create"
-  get "/products/:id", to: "products#show"
-  get "/products/:id/edit", to: "products#edit"
-  patch "/products/:id", to: "products#update"
-  delete "/products/:id", to: 'products#destroy'
-  post "/products/search",to: "products#search"
+
+
+  # get "/products", to: "products#index"
+  # get "/products/new", to: "products#new"
+  # post "/products", to: "products#create"
+  # get "/products/:id", to: "products#show"
+  # get "/products/:id/edit", to: "products#edit"
+  # patch "/products/:id", to: "products#update"
+  # delete "/products/:id", to: 'products#destroy'
+  # post "/products/search",to: "products#search"
 
   get '/carted_products', to: 'carted_products#index'
   post '/carted_products', to: 'carted_products#create'
+  delete "/carted_products/:id", to: 'carted_products#destroy'
 
-  post "/orders" to: "orders#create"
+  post "/orders", to: 'orders#create'
+
+  get "/orders/:id", to: 'orders#show'
+
+  
+  resources :suppliers
+
+
+
+  # get '/suppliers', to: 'suppliers#index'
+  # get '/suppliers', to: 'suppliers#new'
+  # get '/suppliers:id', to: 'suppliers#show'
+
+
+
+
+  # post "/orders" to: "orders#create"
 
 
   # get "/orders.id", to: "/orders#show"

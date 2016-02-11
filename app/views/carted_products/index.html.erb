@@ -3,13 +3,14 @@
     <th>Product Name</th>
     <th>Quantity</th>
     <th>Price Per Product</th>
+    <th>Remove Product(s)</th>
   </tr>
   <%@carted_product.each do |carted_product| %>
   <tr>
-    <td><%=carted_product.product.name %></td>
-    <td><%=carted_product.quantity %></td>
-    <td><%=carted_product.product.price %></td>
-    <td><%= link_to "Remove Product(s)","/carted_products/#{carted_product.id}", method: :delete %></td>
+    <td><%=carted_products.product.name %></td>
+    <td><%=carted_products.quantity %></td>
+    <td><%=carted_products.product.price %></td>
+    <td><%= link_to "Remove Product(s)","/carted_products/#{carted_products.id}", method: :delete %></td>
   </tr>
   <% end %>
 </table>

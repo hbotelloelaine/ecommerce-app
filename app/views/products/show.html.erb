@@ -1,50 +1,39 @@
-<h1>Product</h1>
 <section>
   <div class="row">
     <div class="col-sm-9">
-
-
-
-      <p><%= @product.name %></p>
-      <h2>Price: <%= @product.sale_message %></h2>
-      <h2>Tax: <%= @product.tax %></h2>
-      <h2>Total: <%= @product.total %></h2>
-      <% @product.images.each do |image| %>
-
-      <%end%>
-      <p>Description: <%= @product.description %></p>
+      <div class="product_single">
+        <h2><%= @product.sale_message %></h2>
+        <h2><%= @product.name %></h2>f
+        <p>Price: <%= @product.price %></p>
+        <p>Tax: <%= @product.tax %></p>
+        <p>Total: <%= @product.total %></p>
+        <% @product.images.each do |image| %>
+        <img src="<%= image.image_url %>" alt="<%= @product.name %>" class="img-responsive">
+        <%end%>
+        <p>Description: <%= @product.description %></p>
+        <p>Supplier: <%= @product.supplier.name %></p>
 
 <!--       <h2><% @product.price_asc %></h2>
   <h2><% @product.price_desc %></h2> -->
   <div>
-  <%= form_tag " /carted_products", method: :post do %>
+    <%= f.label @carted_products do |f| %>f
     <%= label_tag :quantity %>
     <%= text_field_tag :quantity, @carted_product.quantity %>
   </div>
   <div>
-  <%= label_tag :product_id %>
-  <%= hidden_field_tag :Product_id, @product.id %>
+    <%= hidden_field_tag :product_id, @product.id %>
   </div>
+
+<div>
+  <%= submit_tag "Add To Cart" %>
 </div>
-
-
-  <div>
-    <%= submit_tag "Add To Cart" %>
-  </div>
-
-  <% end %>
-
-
-
-
-
-
-  <p><%= link_to "Delete", "/products/#{@product.id}", method: :delete %></p>
-  <p><%= link_to "Edit","/products/#{@product.id}/edit" %></p>
+<% end %>
+<%= link_to "Delete", "/products/#{@product.id}", {method: :delete, class: "bnt btn-danger"} %>
+<%= link_to "Edit","/products/#{@product.id}/edit", class: "btn btn-success" %>
+</div>
 
 
 </div>
 </div>
 </section>
 
-<% end %>

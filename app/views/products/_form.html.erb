@@ -1,0 +1,57 @@
+<section>
+  <div class="row">
+    <div class="col-sm-9">
+      <div class="product_single">
+        <ul>
+          <% if @product && @product.errors.any? %>
+          <% @product.errors.full_messages.each do |message| %>
+          <li class="bad-choice"><%= message %></li>
+          <% end %>
+          <% end %>
+        </ul>
+        <h1>Create a new product:</h1>
+
+        <%= form_for @product do |f| %>
+
+        <div>
+          <%= f.label :name %>
+          <%=text_field :name %>
+        </div>
+
+        <div>
+          <%= f.label :price %>
+          <%= text_field :price %>
+        </div>
+
+        <div>
+          <%= f.label :image %>
+          <%= text_field :image %>
+        </div>
+
+        <div>
+          <%= f.label :description %>
+          <%= text_field :description %>
+        </div>
+
+
+        <div>
+          <%=f.label :supplier %>
+          <%=f.collection_select :supplier_id, Supplier.all, :id, :name %>
+        </div>
+        <div>
+          <%= f.field_for :images do |ff| %>
+          <div>
+            <%= ff.label :image_url %>
+            <%= ff.text_field :image_url %>
+          </div>
+          <% end %>
+        </div>
+        <%= f.submit %>
+      </div>
+    </div>
+  </div>
+</section>
+<% end %>
+
+
+

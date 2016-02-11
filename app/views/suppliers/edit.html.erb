@@ -1,0 +1,21 @@
+<%= form_for @rsvp do |f| %>
+<div>
+  <%=f.label :name %>
+  <%=f.text_field :name %>
+</div>
+
+<div>
+  <%= f.label :email%>
+  <%= f.text_field :email%>
+</div>
+
+<div>
+  <%= f.label :phone_number%>
+  <%= f.check_box :phone_number%>
+</div>
+
+<div>
+  <%= f.submit %>
+</div>
+
+<% end %>
